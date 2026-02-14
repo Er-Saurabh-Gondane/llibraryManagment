@@ -67,7 +67,7 @@ export default function AddBook() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-600 via-blue-600 to-purple-700">
+    <div className="min-h-screen bg-linear-to-br from-indigo-600 via-blue-600 to-purple-700">
       <Navbar />
 
       <div className="flex justify-center items-center py-20 px-4">

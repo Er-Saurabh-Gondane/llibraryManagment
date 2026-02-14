@@ -23,7 +23,7 @@ export default function Home() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className="bg-gradient-to-r from-indigo-700 via-blue-600 to-purple-700 text-white text-center py-24 px-6">
+      <section className="bg-linear-to-br from-indigo-700 via-blue-600 to-purple-700 text-white text-center py-24 px-6">
         <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
           Discover Your Next <span className="text-yellow-300">Favorite Book</span>
         </h1>
