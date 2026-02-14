@@ -1,23 +1,26 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Navbar from "../components/Navbar";
 import BookCard from "../components/BookCard";
-import books from "../data/books";
 
 export default function BrowseBooks() {
   const { category } = useParams();
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Step 1: Filter by category (if exists)
+  const books = useSelector((state) => state.books.list);
+
   let filteredBooks = books;
 
+  // Filter by category
   if (category) {
     filteredBooks = filteredBooks.filter(
-      (book) => book.category.toLowerCase() === category.toLowerCase()
+      (book) =>
+        book.category.toLowerCase() === category.toLowerCase()
     );
   }
 
-  // Step 2: Filter by search
+  // Filter by search
   filteredBooks = filteredBooks.filter(
     (book) =>
       book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -26,7 +29,6 @@ export default function BrowseBooks() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      
       <Navbar />
 
       <section className="max-w-6xl mx-auto py-16 px-6">
@@ -34,7 +36,6 @@ export default function BrowseBooks() {
           {category ? `${category} Books` : "All Books"}
         </h2>
 
-        {/* SEARCH BAR */}
         <div className="mb-8 text-center">
           <input
             type="text"
@@ -45,7 +46,6 @@ export default function BrowseBooks() {
           />
         </div>
 
-        {/* BOOK GRID */}
         {filteredBooks.length === 0 ? (
           <p className="text-center text-gray-500">
             No books found.
